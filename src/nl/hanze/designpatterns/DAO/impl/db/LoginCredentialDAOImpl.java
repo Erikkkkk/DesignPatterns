@@ -1,13 +1,12 @@
 package nl.hanze.designpatterns.DAO.impl.db;
 
-import nl.hanze.designpatterns.db.Executor;
 import nl.hanze.designpatterns.domain.LoginCredential;
 
-public class LoginCredentialDAOImpl {
-	Executor executor;
+public class LoginCredentialDAOImpl extends BaseDAOImpl {
+	
 	
 	public LoginCredentialDAOImpl() {
-		executor = Executor.getExecutor();
+		
 	}
 	
 	
