@@ -1,11 +1,18 @@
 package nl.hanze.designpatterns.db;
 
+import java.lang.reflect.Method;
+import java.sql.ResultSet;
 import java.util.*;
 
 public class RowIterator<T> implements Iterator<T> {
+	Class<T> c;
+	Method[] classMethods;
+
+	ResultSet res;
 	
-	protected RowIterator() {
-		
+	protected RowIterator(Class<T> c, ResultSet res) {
+		this.c = c;
+		this.res = res;
 	}
 	
 	@Override
@@ -15,7 +22,7 @@ public class RowIterator<T> implements Iterator<T> {
 
 	@Override
 	public T next() {
-		//sorteer type
+		//if(method.getName.startsWith("set" + ))
 		return null;
 	}
 
