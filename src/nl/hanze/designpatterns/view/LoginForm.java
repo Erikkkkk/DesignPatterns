@@ -6,7 +6,6 @@ package nl.hanze.designpatterns.view;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import nl.hanze.designpatterns.controller.LoginController;
 
 /**
  *
