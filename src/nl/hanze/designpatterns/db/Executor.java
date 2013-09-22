@@ -17,19 +17,20 @@ public class Executor {
 		databaseDriver = "com.mysql.jdbc.Driver";
 		
 		String databaseURL = "jdbc:mysql:localhost";
-		String databaseName = "funda2";
+		String databaseName = "designpatterns";
 		String databaseUser = "root";
 		String databasePassword = "";
 		
 		databaseConnectionString = databaseDriver + "//" + databaseURL + "/" + databaseName + "?user=" +
 				databaseUser + "&password=" + databasePassword;
+		
+		connectToMySQL();
 	}
 	
-	public Executor getExecutor() {
+	public static Executor getExecutor() {
 		
 		if(executor == null) {
 			executor = new Executor();
-			connectToMySQL();
 		}
 		
 		return executor;
@@ -52,6 +53,7 @@ public class Executor {
 	
 	
 	public void executeQuery(String query) throws Exception {
+		
 	}
 	
 	public <T> Iterator<T> getIterator(String query, Class<T> c) throws Exception {
