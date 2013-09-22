@@ -53,10 +53,13 @@ public class Executor {
 	
 	
 	public void executeQuery(String query) throws Exception {
-		
+		connect.prepareStatement(query);
 	}
 	
 	public <T> Iterator<T> getIterator(String query, Class<T> c) throws Exception {
+		
+		
+		
 		return null;
 	}
 }
