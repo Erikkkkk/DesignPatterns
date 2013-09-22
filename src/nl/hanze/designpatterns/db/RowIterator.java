@@ -3,6 +3,11 @@ package nl.hanze.designpatterns.db;
 import java.util.*;
 
 public class RowIterator<T> implements Iterator<T> {
+	
+	protected RowIterator() {
+		
+	}
+	
 	@Override
 	public boolean hasNext() {
 		return false;
@@ -10,6 +15,7 @@ public class RowIterator<T> implements Iterator<T> {
 
 	@Override
 	public T next() {
+		//sorteer type
 		return null;
 	}
 
