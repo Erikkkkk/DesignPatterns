@@ -64,10 +64,7 @@ public class Executor {
 	    
 	    RowIterator rowIterator = new RowIterator<T>(c, res);
 	    
-	    while (rowIterator.hasNext()) {
-	    	
-	    	
-	    }
+	    
 		
 		return null;
 	}

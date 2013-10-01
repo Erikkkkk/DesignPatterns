@@ -16,6 +16,8 @@ public class LoginCredentialDAOImpl extends BaseDAOImpl {
 		String query = "select * from logincredential where userName=" + logincredential.getUserName() + 
 				" and password=" + logincredential.getPassword();
 		executor.getIterator(query, LoginCredential.class);
+		
+		
 		return false;
 	}
 
