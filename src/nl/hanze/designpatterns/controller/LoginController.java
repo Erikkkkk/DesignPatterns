@@ -6,6 +6,10 @@ package nl.hanze.designpatterns.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import nl.hanze.designpatterns.DAO.LoginCredentialDAO;
+import nl.hanze.designpatterns.DAO.impl.db.LoginCredentialDAOImpl;
 import nl.hanze.designpatterns.domain.LoginCredential;
 import nl.hanze.designpatterns.view.*;
 
@@ -28,6 +32,15 @@ public class LoginController {
                 String password = loginForm.getPasswordText().getText();
 
                 System.out.println("Login pressed");
+                
+                LoginCredential loginCredential = new LoginCredential(username,password);
+                
+                LoginCredentialDAOImpl dao = new LoginCredentialDAOImpl();
+                try {
+                    dao.isValid(loginCredential);
+                } catch (Exception ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
                 ContainerController container = new ContainerController();
                 
