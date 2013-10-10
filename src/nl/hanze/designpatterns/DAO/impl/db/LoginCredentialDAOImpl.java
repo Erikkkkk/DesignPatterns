@@ -12,21 +12,19 @@ public class LoginCredentialDAOImpl extends BaseDAOImpl {
 		
 	}
 	
-	
 	public boolean isValid(LoginCredential logincredential) throws Exception {
-		String query = "select * from logincredential";
-		RowIterator rowIterator = (RowIterator) executor.getIterator(query, LoginCredential.class);
+		String query = "SELECT * FROM logincredential";
+		Iterator<LoginCredential> rowIterator = executor.getIterator(query, LoginCredential.class);
 		
 		while(rowIterator.hasNext()){
-                    LoginCredential next = (LoginCredential)rowIterator.next();
-                    System.out.println(logincredential.getUserName());
-                    System.out.println(logincredential.getPassword());
+                    LoginCredential next = rowIterator.next();
+                    System.out.println(next.getUserName());
+                    System.out.println(next.getPassword());
                     if(next.getUserName().equalsIgnoreCase(logincredential.getUserName())
                          && next.getPassword().equals(logincredential.getPassword())){
                         System.out.println("goed");
                         return true;
                     }
-                    
                 }
 		return false;
 	}

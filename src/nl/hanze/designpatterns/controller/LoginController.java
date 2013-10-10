@@ -37,12 +37,13 @@ public class LoginController {
                 
                 LoginCredentialDAOImpl dao = new LoginCredentialDAOImpl();
                 try {
-                    dao.isValid(loginCredential);
+                    if(dao.isValid(loginCredential)){
+                        ContainerController container = new ContainerController();
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                ContainerController container = new ContainerController();
                 
                 
             }

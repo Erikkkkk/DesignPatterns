@@ -60,7 +60,7 @@ public class Executor {
         Statement statement = connect.createStatement();
         ResultSet rs = statement.executeQuery(query);
 
-        RowIterator rowIterator = new RowIterator(rs);
+        RowIterator rowIterator = new RowIterator<T>(c,rs);
 
 
 
