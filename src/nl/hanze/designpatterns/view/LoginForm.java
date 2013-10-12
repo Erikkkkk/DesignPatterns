@@ -5,6 +5,7 @@
 package nl.hanze.designpatterns.view;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -31,6 +32,7 @@ public class LoginForm extends javax.swing.JFrame {
         usernameText = new javax.swing.JTextField();
         passwordText = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
+        invalidLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,23 +52,30 @@ public class LoginForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(95, 95, 95)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(usernameText)
-                    .add(passwordText)
-                    .add(loginButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createSequentialGroup()
+                        .add(95, 95, 95)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(usernameText)
+                            .add(passwordText)
+                            .add(loginButton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
+                    .add(layout.createSequentialGroup()
+                        .add(103, 103, 103)
+                        .add(invalidLogin)))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(47, 47, 47)
+                .add(19, 19, 19)
+                .add(invalidLogin)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(usernameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(passwordText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(loginButton)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,10 +85,15 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameTextActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel invalidLogin;
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField passwordText;
     private javax.swing.JTextField usernameText;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getInvalidLogin() {
+        return invalidLogin;
+    }
 
     public JTextField getPasswordText() {
         return passwordText;
