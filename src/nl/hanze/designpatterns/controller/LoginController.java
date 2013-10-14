@@ -49,7 +49,7 @@ public class LoginController {
                     LoginCredentialDAOFileImpl dao = new LoginCredentialDAOFileImpl();
 
                     if (dao.isValid(loginCredential)) {
-                        ContainerController container = new ContainerController();
+                        ContainerController container = new ContainerController(username);
                     }else{
                         loginForm.getInvalidLogin().setText("Invalid login");
                     }

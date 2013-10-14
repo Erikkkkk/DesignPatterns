@@ -4,16 +4,28 @@
  */
 package nl.hanze.designpatterns.view;
 
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import nl.hanze.designpatterns.domain.Question;
+import nl.hanze.designpatterns.domain.Thesaurus;
+
 /**
  *
  * @author glenndeb
  */
 public class DashboardView extends javax.swing.JPanel {
-
+	private Question root;
+	
     /**
      * Creates new form DashboardView
      */
-    public DashboardView() {
+    public DashboardView(Question root) {
+    	this.root = root;
         initComponents();
     }
 
@@ -28,7 +40,9 @@ public class DashboardView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Gill Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Dashboard");
+        jLabel1.setText("Questions and answers");
+        
+        jTree = setNodes();
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
@@ -37,6 +51,7 @@ public class DashboardView extends javax.swing.JPanel {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
+                .add(jTree, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
                 .addContainerGap(313, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -44,10 +59,38 @@ public class DashboardView extends javax.swing.JPanel {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
+                .add(jTree, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
                 .addContainerGap(272, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTree jTree;
     // End of variables declaration//GEN-END:variables
+
+	private JTree setNodes() {
+		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(root.getDescription());
+		
+		addChildNodes(root, rootNode);
+		
+        JTree tree = new JTree(rootNode);
+        return tree;
+	}
+	
+	private void addChildNodes(Thesaurus thesaurus, DefaultMutableTreeNode rootNode) {
+		ArrayList<Thesaurus> childs = new ArrayList<Thesaurus>();
+		childs = thesaurus.getChilds();
+		
+		if(childs.size() > 0) {
+			for(Iterator<Thesaurus> i = childs.iterator(); i.hasNext(); ) {
+				Thesaurus moi = (Thesaurus) i.next();
+				DefaultMutableTreeNode the = new DefaultMutableTreeNode(moi.getDescription());
+				rootNode.add(the);
+				
+				//System.out.println("Description " + moi.getDescription());
+				addChildNodes(moi, the);
+			}
+		}
+	}
+	
 }

@@ -1,12 +1,20 @@
 package nl.hanze.designpatterns.domain;
 
+import java.sql.Timestamp;
+
 public class TroubleTicket {
+	private Integer id;
+	private Timestamp timestamp;
 	private String userName;
 	private String callerName;
 	private String description;
-	private String dateTime;
+	private Timestamp dateTime;
 	
-	public TroubleTicket(String userName, String callerName, String description, String dateTime) {
+	public TroubleTicket() {}
+	
+	public TroubleTicket(Integer id, Timestamp timestamp ,String userName, String callerName, String description, Timestamp dateTime) {
+		this.setId(id);
+		this.setTimestamp(timestamp);
 		this.setUserName(userName);
 		this.setCallerName(callerName);
 		this.setDescription(description);
@@ -36,12 +44,28 @@ public class TroubleTicket {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-	public String getDateTime() {
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public Timestamp getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(String dateTime) {
+	public void setDateTime(Timestamp dateTime) {
 		this.dateTime = dateTime;
 	}
 }

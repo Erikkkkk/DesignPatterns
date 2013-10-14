@@ -28,7 +28,7 @@ public class LoginCredentialDAOFileImpl extends BaseDAOImpl {
     public boolean isValid(LoginCredential logincredential) throws Exception {
 
         String str = this.cryptedInputStream.readAndDecrypt("ThisIsASecretKey");
-        System.out.println("the string in file"+str);
+        System.out.println("the string in file: "+str);
         
         if(str.equalsIgnoreCase(logincredential.getUserName()+":"+logincredential.getPassword())){
                     System.out.println("goed");

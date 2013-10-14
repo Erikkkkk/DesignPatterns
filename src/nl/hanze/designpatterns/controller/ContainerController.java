@@ -14,11 +14,12 @@ import javax.swing.JTabbedPane;
  */
 public class ContainerController {
     
+	public String username;
     public ContainerView container;
     public JTabbedPane tabPane;
 
-    public ContainerController() {
-        
+    public ContainerController(String username) {
+        this.username = username;
         this.container = new ContainerView();
         container.setVisible(true);
         tabPane = this.container.getInnerPanel();
@@ -32,6 +33,9 @@ public class ContainerController {
         tabPane.addTab(title, panel);
     }
     
+    public String getUsername() {
+    	return username;
+    }
     
     
 }

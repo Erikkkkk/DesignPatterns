@@ -4,6 +4,10 @@
  */
 package nl.hanze.designpatterns.view;
 
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author glenndeb
@@ -26,22 +30,24 @@ public class NewTicketView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Title = new javax.swing.JTextField();
+        title = new javax.swing.JTextField();
+        usernameCaller = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jDescription = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Gill Sans", 0, 18)); // NOI18N
         jLabel1.setText("New Ticket");
 
-        Title.setToolTipText("Titel");
+        title.setText("Date: yyyy-mm-dd");
+        usernameCaller.setText("Username of caller");
+        
+        jDescription.setColumns(20);
+        jDescription.setRows(5);
+        jDescription.setText("Description");
+        jScrollPane1.setViewportView(jDescription);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setToolTipText("Beschrijving ");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jButton1.setLabel("Opslaan");
+        jButton1.setLabel("Add");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
@@ -53,7 +59,8 @@ public class NewTicketView extends javax.swing.JPanel {
                     .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                         .add(jLabel1)
-                        .add(Title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 600, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 600, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(usernameCaller, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 600, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(layout.createSequentialGroup()
                             .add(6, 6, 6)
                             .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 600, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
@@ -65,7 +72,8 @@ public class NewTicketView extends javax.swing.JPanel {
                 .addContainerGap()
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(Title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(title, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(usernameCaller, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
@@ -74,10 +82,27 @@ public class NewTicketView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Title;
+    private javax.swing.JTextField usernameCaller;
+    private javax.swing.JTextField title;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jDescription;
     // End of variables declaration//GEN-END:variables
+    
+    public JTextField getTitleText() {
+        return title;
+    }
+    
+    public JTextField getUsernameCallerText() {
+        return usernameCaller;
+    }
+
+    public JTextArea getDescriptionText() {
+        return jDescription;
+    }
+    
+    public JButton getAddButton() {
+        return jButton1;
+    }
 }

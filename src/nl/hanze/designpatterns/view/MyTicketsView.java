@@ -4,6 +4,11 @@
  */
 package nl.hanze.designpatterns.view;
 
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.TableColumn;
+
 /**
  *
  * @author glenndeb
@@ -26,34 +31,68 @@ public class MyTicketsView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        usernameCaller = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Gill Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Mijn Tickets");
+        jLabel1.setText("Tickets");
+        usernameCaller.setText("Caller");
+        jButton1.setLabel("Filter caller");
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Caller", "Date", "Description", "User"
             }
         ));
         jScrollPane2.setViewportView(Table);
+       
+        //Table.setValueAt("Hallo", 0, 0);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(jLabel1)
+                        .add(usernameCaller, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 40, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE)
+                        .add(jButton1)
                         .add(0, 0, Short.MAX_VALUE))
                     .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE))
                 .addContainerGap())
@@ -63,6 +102,8 @@ public class MyTicketsView extends javax.swing.JPanel {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
+                .add(usernameCaller, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 40, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE)
+                .add(jButton1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                 .addContainerGap())
@@ -72,5 +113,19 @@ public class MyTicketsView extends javax.swing.JPanel {
     private javax.swing.JTable Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField usernameCaller;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
+    
+    public JTextField getUsernameCallerText() {
+        return usernameCaller;
+    }
+    
+    public JButton getSelectButton() {
+        return jButton1;
+    }
+    
+    public void updateTableValue(String value, int row, int column) {
+    	Table.setValueAt(value, row, column);
+    }
 }

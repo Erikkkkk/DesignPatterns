@@ -1,5 +1,43 @@
 package nl.hanze.designpatterns.domain;
 
-public class Answer {
+import java.util.ArrayList;
+
+public class Answer implements Thesaurus, java.io.Serializable {
+	private String title;
+	private String description;
+	
+	private static final long serialVersionUID = 1L;
+	
+	private ArrayList<Thesaurus> childs;
+	
+	public Answer(String title, String description) {
+		this.title = title;
+		this.description = description;
+		childs = new ArrayList<Thesaurus>();
+	} 
+	
+	public Answer(ArrayList<Thesaurus> childs) {
+		this.childs = childs;
+	}
+	
+	public void add(Thesaurus thesaurus) {
+		childs.add(thesaurus);
+	}
+	
+	public void remove(Thesaurus thesaurus) {
+		childs.remove(thesaurus);
+	}
+	
+	public ArrayList<Thesaurus> getChilds() {
+		return childs;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public boolean hasChilds() {
+		return childs.isEmpty();
+	}
 
 }
